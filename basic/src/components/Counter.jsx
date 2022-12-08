@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 
-export default function Counter() {
-    const [number, setNumber] = useState(0);
+export default function Counter({func}) {
 
     return (
         <div className='counter'>
-            <span className='number'>{number}</span>
-            <button className='button' onClick={(event) => {
-                setNumber(number + 1);
-            }}>Add +</button>
+            {func}
         </div>
     );
 }

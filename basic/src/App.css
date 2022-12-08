@@ -43,6 +43,7 @@
 .container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .counter {
@@ -63,9 +64,19 @@
   font-size: 7rem;
 }
 
+.general-number {
+  font-size: 2rem;
+}
+
 .button {
   font-size: 2rem;
   padding: 0.2rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+.all-number {
+  display: flex;
+  justify-content: center;
+  font-size: 8rem;
 }
