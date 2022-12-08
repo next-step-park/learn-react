@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Products() {
-    const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
+    const [checked, setChecked] = useState(false);
 
     useEffect(()=> {
-        fetch('data/products.json')
+        fetch(`data/${checked ? 'sale_' : ''}products.json`)
         .then((res)=> res.json())
         .then((data)=> {
             console.log('🔥　温かい最新のデータがネットワークを通して届きました');
@@ -13,13 +13,15 @@ export default function Products() {
         })
 
         return ()=> console.log('🧺 不要なものを削除しております')
-    }, [])
+    }, [checked])
     
     
 
     return (
         <div>
-            <button onClick={()=> setCount(count + 1)}>{count}</button>
+            <input id='checkbox' type="checkbox" value={checked} onClick={()=> setChecked((prev) => !prev)}/>
+            <label htmlFor="checkbox">Show Only 🔥 Sale</label>
+
             <ul>
                 {products.map((product)=>(
                     <li key={product.id}>
@@ -28,9 +30,7 @@ export default function Products() {
                             <p>{product.price}</p>
                         </article>
                     </li>
-                ))
-
-                }
+                ))}
             </ul>
         </div>
     );
