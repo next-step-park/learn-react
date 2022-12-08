@@ -21,6 +21,13 @@
   border-radius: 100%;
 }
 
+.avatar {
+  width:200px;
+  height: 200px;
+  position: relative;
+  margin: auto;
+}
+
 /* absoluteは親の位置の中で動く。そして親にはposition:relativeを入れる */
 .new {
   position: absolute;
