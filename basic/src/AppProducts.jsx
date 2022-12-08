@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Products from './components/Products';
+import React, { useState } from "react";
+import Products from "./components/Products";
 
 export default function AppProducts() {
     const [isToggleClicked, setIsToggleClicked] = useState(false);
@@ -7,8 +7,9 @@ export default function AppProducts() {
     return (
         <div>
             {isToggleClicked && <Products />}
-            <button onClick={()=>setIsToggleClicked(!isToggleClicked)}>Toggle</button>
+            <button onClick={() => setIsToggleClicked(!isToggleClicked)}>
+                Toggle
+            </button>
         </div>
     );
 }
-
