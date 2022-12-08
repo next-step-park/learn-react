@@ -5,6 +5,8 @@ function AppProfile() {
     return (
         <>
             <Profile />
+            <Profile />
+            <Profile />
         </>
     );
 }
