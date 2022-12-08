@@ -1,6 +1,6 @@
 import './App.css';
 
-function App() {
+function AppJSX() {
   const name = 'siyeon';
   const list = ['apple', 'banana', 'milk', 'cookie'];
 
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppJSX;
