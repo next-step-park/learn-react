@@ -2,15 +2,14 @@ import './App.css';
 
 function App() {
   const name = 'siyeon';
+  const list = ['apple', 'banana', 'milk', 'cookie'];
 
   return (
     <>
-      <h1 className='orange'>hello</h1>
+      <h1 className='orange'>{`hello! ${name}`}</h1>
       <h2>{name}</h2>
       <ul>
-        <li>林檎</li>
-        <li>バナナ</li>
-        <li>牛乳</li>
+        {list.map((item) => <li>{item}</li>)}
       </ul>
       <img
         // javascriptコードをObjectとして扱っているので、{}が2つである
