@@ -17,12 +17,21 @@ function CountNumber({allNumber, setAllNumber}) {
     )
 }
 
+function DisplayTotalCount({allNumber, setAllNumber}) {
+    if (allNumber <= 10) {
+        return <span className='all-number'>Total Count : {allNumber} ❄️</span>
+    } else {
+        return <span className='all-number'>Total Count : {allNumber} 🔥</span>
+    }
+    
+}
+
 export default function AppCount() {
     const [allNumber, setAllNumber] = useState(0);
 
     return (
         <div className='container'>
-            <span className='all-number'>{allNumber}</span>
+            {DisplayTotalCount({allNumber, setAllNumber})}
             {CountNumber({allNumber, setAllNumber})}/
             {CountNumber({allNumber, setAllNumber})}/
         </div>

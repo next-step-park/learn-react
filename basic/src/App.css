@@ -78,5 +78,8 @@
 .all-number {
   display: flex;
   justify-content: center;
-  font-size: 8rem;
+  font-size: 3rem;
+  margin-top: 2rem;
+  background-color:cornflowerblue;
+  color: #fff;
 }
