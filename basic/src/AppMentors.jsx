@@ -34,19 +34,46 @@ const AppMentors = () => {
                     const prev = prompt(`誰の名前を変えたいんですか？`);
                     const current = prompt(`名前を何にしますか？`);
 
-                    if (prev)
-                        setPerson((person) => ({
-                            ...person,
-                            mentors: person.mentors.map((mentor) => {
-                                if (mentor.name === prev) {
-                                    return { ...mentor, name: current };
-                                }
-                                return mentor;
-                            }),
-                        }));
+                    setPerson((person) => ({
+                        ...person,
+                        mentors: person.mentors.map((mentor) => {
+                            if (mentor.name === prev) {
+                                return { ...mentor, name: current };
+                            }
+                            return mentor;
+                        }),
+                    }));
                 }}
             >
                 エルダーの名前を変える
+            </button>
+            <button
+                onClick={() => {
+                    const name =
+                        prompt(`追加したいエルダーの名前は何でしょうか？`);
+                    const title =
+                        prompt(`追加したエルダーの職種は何でしょうか？`);
+
+                    setPerson((person) => ({
+                        ...person,
+                        mentors: [...person.mentors, { name, title }],
+                    }));
+                }}
+            >
+                エルダー追加
+            </button>
+            <button
+                onClick={() => {
+                    const name =
+                        prompt(`削除したいエルダーの名前は何でしょうか？`);
+
+                    setPerson((person) => ({
+                        ...person,
+                        mentors: person.mentors.filter((m) => m.name !== name),
+                    }));
+                }}
+            >
+                エルダー削除
             </button>
         </div>
     );
