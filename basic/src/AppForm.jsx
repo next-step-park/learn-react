@@ -1,10 +1,10 @@
 import React from "react";
 import { useReducer } from "react";
-import { Reducer } from "react";
 import formReducer from "./reducer/form-reducer";
+import { useImmer } from "use-immer";
 
 export default function AppForm() {
-    const [form, dispatch] = useReducer(formReducer, initialForm);
+    const [form, updateForm] = useImmer(initialForm);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +14,15 @@ export default function AppForm() {
     // dispatchは既に対象となるObjectと繋がっているので、ここではmethodの中で使いたい値だけを
     // 引数として渡せば良い
     const handleChange = (e) => {
-        dispatch({ type: "updated", e });
+        updateForm((form) => {
+            const { name, value } = e.target;
+
+            if (Object.keys(form)[0] === name) {
+                form.name = value;
+            } else {
+                form.email = value;
+            }
+        });
     };
 
     return (
